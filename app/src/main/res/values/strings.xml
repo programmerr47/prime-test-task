@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">PrimeTestTask</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+
+    <!-- Game Page -->
+    <string name="level_label">Level:</string>
+    <string name="score_label">Score:</string>
 </resources>
