@@ -2,6 +2,15 @@
     <string name="app_name">PrimeTestTask</string>
 
     <!-- Game Page -->
+    <string name="again">Again</string>
     <string name="level_label">Level:</string>
     <string name="score_label">Score:</string>
+    <string name="win_title">You win!</string>
+    <string name="win_message">Please click "Again" to replay the game.</string>
+
+    <!-- Level List Page -->
+    <string name="item_level_label">Level</string>
+    <string name="item_stg_label">Score to gain</string>
+    <string name="item_spc_label">Score per click</string>
+    <string name="level_list">List of levels</string>
 </resources>

@@ -66,6 +66,11 @@ public class GameMechanics implements AsyncTaskWithListener.OnTaskFinishedListen
 
     public void click() {
         currentScore += currentPointsPerClick;
+
+        if (listener != null) {
+            listener.onLevelInfoUpdate();
+        }
+
         checkAndUpdateLevel();
     }
 
@@ -85,15 +90,30 @@ public class GameMechanics implements AsyncTaskWithListener.OnTaskFinishedListen
         currentPointsPerClick = prefs.getInt(CURRENT_POINTS_PER_CLICK_KEY, 1);
     }
 
+    public void refresh() {
+        currentScore = 0;
+        currentLevel = levels.get(0).getLevel();
+        currentPointsPerClick = levels.get(0).getPointsPerClick();
+        currentLevelPosition = 0;
+
+        if (listener != null) {
+            listener.onLevelInfoUpdate();
+        }
+
+        save();
+        checkAndUpdateLevel();
+    }
+
     private void checkAndUpdateLevel() {
         boolean updated = false;
         if (currentLevelPosition != -1) {
-            for (int i = currentLevelPosition; i < levels.size() - 1; i++) {
+            for (int i = currentLevelPosition + 1; i < levels.size(); i++) {
                 LevelInfo nextLevel = levels.get(i);
 
                 if (currentScore > nextLevel.getPointsToGain()) {
                     currentLevel = nextLevel.getLevel();
                     currentPointsPerClick = nextLevel.getPointsPerClick();
+                    currentLevelPosition = i;
                     updated = true;
                 }
             }

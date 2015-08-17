@@ -56,6 +56,6 @@ public class RestService extends IntentService {
 
         Intent intent = new Intent(LEVELS_RESULT_BROADCAST);
         //TODO add status result (successful or not)
-        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
+        getApplicationContext().sendBroadcast(intent);
     }
 }
