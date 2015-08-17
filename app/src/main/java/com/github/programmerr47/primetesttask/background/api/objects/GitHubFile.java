@@ -31,8 +31,8 @@ public class GitHubFile {
             return this;
         }
 
-        public Builder setDownloadUrl(String name) {
-            this.name = name;
+        public Builder setDownloadUrl(String downloadUrl) {
+            this.downloadUrl = downloadUrl;
             return this;
         }
 
